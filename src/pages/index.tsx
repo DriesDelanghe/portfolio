@@ -1,8 +1,6 @@
 import * as React from "react"
 import type { HeadFC, PageProps } from "gatsby"
-import { Layout } from "../components/shared"
-import { LinkPrimary } from "../components/shared/link-primary.component"
-import { LinkSecondary } from "../components/shared/link-secondary.component"
+import { Layout, LinkPrimary, LinkSecondary } from "../components/shared"
 import { StaticImage } from "gatsby-plugin-image"
 
 const IndexPage: React.FC<PageProps> = ({ location }) => {
@@ -23,7 +21,7 @@ const LandingSection = () => {
   return (
     <section className="h-screen flex flex-col snap-always snap-start shrink-0" aria-label="landing page">
       <div className="flex md:items-center h-full lg:px-24">
-        <div className="flex gap-10 flex-col md:flex-row items-center md:items-start pt-10 md:pt-0">
+        <div className="flex gap-10 flex-col md:flex-row items-center md:items-start pt-16 md:pt-0">
           <figure>
             <StaticImage src={'../images/homepage-avatar.png'} className="w-52 aspect-square" alt="avatar of Dries Delanghe holding a cup of tea" />
           </figure>
@@ -53,7 +51,7 @@ const AboutSection = () => {
 
   return (
     <section aria-label="about me" className="min-h-screen flex flex-col items center snap-always snap-start shrink-0">
-      <div className="flex flex-col items-center gap-10 pt-10 md:pt-20">
+      <div className="flex flex-col items-center gap-10 pt-20">
         <figure>
           <StaticImage width={200} src={'../images/about-me-avatar.png'} className="w-52 aspect-square" alt="avatar of Dries Delanghe waving at you" />
         </figure>
