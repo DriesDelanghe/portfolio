@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --color-theme: 133, 23, 35;
+        --color-muted: 69, 69, 69;
+        --color-theme-dark: 95, 0, 10;
+        --color-theme-light: 184, 51, 78;
+    }
+}

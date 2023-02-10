@@ -1,193 +1,82 @@
 import * as React from "react"
 import type { HeadFC, PageProps } from "gatsby"
+import { Layout } from "../components/shared"
+import { LinkPrimary } from "../components/shared/link-primary.component"
+import { LinkSecondary } from "../components/shared/link-secondary.component"
+//@ts-ignore
+import HomepageAvatar from '../images/homepage-avatar.png';
+//@ts-ignore
+import AboutAvatar from '../images/about-me-avatar.png';
 
-const pageStyles = {
-  color: "#232129",
-  padding: 96,
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-const headingAccentStyles = {
-  color: "#663399",
-}
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
-const listStyles = {
-  marginBottom: 96,
-  paddingLeft: 0,
-}
-const doclistStyles = {
-  paddingLeft: 0,
-}
-const listItemStyles = {
-  fontWeight: 300,
-  fontSize: 24,
-  maxWidth: 560,
-  marginBottom: 30,
-}
-
-const linkStyle = {
-  color: "#8954A8",
-  fontWeight: "bold",
-  fontSize: 16,
-  verticalAlign: "5%",
-}
-
-const docLinkStyle = {
-  ...linkStyle,
-  listStyleType: "none",
-  display: `inline-block`,
-  marginBottom: 24,
-  marginRight: 12,
-}
-
-const descriptionStyle = {
-  color: "#232129",
-  fontSize: 14,
-  marginTop: 10,
-  marginBottom: 0,
-  lineHeight: 1.25,
-}
-
-const docLinks = [
-  {
-    text: "TypeScript Documentation",
-    url: "https://www.gatsbyjs.com/docs/how-to/custom-configuration/typescript/",
-    color: "#8954A8",
-  },
-  {
-    text: "GraphQL Typegen Documentation",
-    url: "https://www.gatsbyjs.com/docs/how-to/local-development/graphql-typegen/",
-    color: "#8954A8",
-  }
-]
-
-const badgeStyle = {
-  color: "#fff",
-  backgroundColor: "#088413",
-  border: "1px solid #088413",
-  fontSize: 11,
-  fontWeight: "bold",
-  letterSpacing: 1,
-  borderRadius: 4,
-  padding: "4px 6px",
-  display: "inline-block",
-  position: "relative" as "relative",
-  top: -2,
-  marginLeft: 10,
-  lineHeight: 1,
-}
-
-const links = [
-  {
-    text: "Tutorial",
-    url: "https://www.gatsbyjs.com/docs/tutorial/",
-    description:
-      "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
-    color: "#E95800",
-  },
-  {
-    text: "How to Guides",
-    url: "https://www.gatsbyjs.com/docs/how-to/",
-    description:
-      "Practical step-by-step guides to help you achieve a specific goal. Most useful when you're trying to get something done.",
-    color: "#1099A8",
-  },
-  {
-    text: "Reference Guides",
-    url: "https://www.gatsbyjs.com/docs/reference/",
-    description:
-      "Nitty-gritty technical descriptions of how Gatsby works. Most useful when you need detailed information about Gatsby's APIs.",
-    color: "#BC027F",
-  },
-  {
-    text: "Conceptual Guides",
-    url: "https://www.gatsbyjs.com/docs/conceptual/",
-    description:
-      "Big-picture explanations of higher-level Gatsby concepts. Most useful for building understanding of a particular topic.",
-    color: "#0D96F2",
-  },
-  {
-    text: "Plugin Library",
-    url: "https://www.gatsbyjs.com/plugins",
-    description:
-      "Add functionality and customize your Gatsby site or app with thousands of plugins built by our amazing developer community.",
-    color: "#8EB814",
-  },
-  {
-    text: "Build and Host",
-    url: "https://www.gatsbyjs.com/cloud",
-    badge: true,
-    description:
-      "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!",
-    color: "#663399",
-  },
-]
-
-const IndexPage: React.FC<PageProps> = () => {
+const IndexPage: React.FC<PageProps> = ({ location }) => {
   return (
-    <main style={pageStyles}>
-      <h1 style={headingStyles}>
-        Congratulations
-        <br />
-        <span style={headingAccentStyles}>— you just made a Gatsby site! 🎉🎉🎉</span>
-      </h1>
-      <p style={paragraphStyles}>
-        Edit <code style={codeStyles}>src/pages/index.tsx</code> to see this page
-        update in real-time. 😎
-      </p>
-      <ul style={doclistStyles}>
-        {docLinks.map(doc => (
-          <li key={doc.url} style={docLinkStyle}>
-            <a
-              style={linkStyle}
-              href={`${doc.url}?utm_source=starter&utm_medium=ts-docs&utm_campaign=minimal-starter-ts`}
-            >
-              {doc.text}
-            </a>
-          </li>
-        ))}
-      </ul>
-      <ul style={listStyles}>
-        {links.map(link => (
-          <li key={link.url} style={{ ...listItemStyles, color: link.color }}>
-            <span>
-              <a
-                style={linkStyle}
-                href={`${link.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter-ts`}
-              >
-                {link.text}
-              </a>
-              {link.badge && (
-                <span style={badgeStyle} aria-label="New Badge">
-                  NEW!
-                </span>
-              )}
-              <p style={descriptionStyle}>{link.description}</p>
-            </span>
-          </li>
-        ))}
-      </ul>
-      <img
-        alt="Gatsby G Logo"
-        src="data:image/svg+xml,%3Csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2a10 10 0 110 20 10 10 0 010-20zm0 2c-3.73 0-6.86 2.55-7.75 6L14 19.75c3.45-.89 6-4.02 6-7.75h-5.25v1.5h3.45a6.37 6.37 0 01-3.89 4.44L6.06 9.69C7 7.31 9.3 5.63 12 5.63c2.13 0 4 1.04 5.18 2.65l1.23-1.06A7.959 7.959 0 0012 4zm-8 8a8 8 0 008 8c.04 0 .09 0-8-8z' fill='%23639'/%3E%3C/svg%3E"
-      />
+    <main>
+      <Layout location={location}>
+        <div className="snap-mandatory snap-y scroll-smooth overflow-scroll h-screen flex flex-col px-8">
+          <LandingSection />
+          <AboutSection />
+        </div>
+      </Layout>
     </main>
+  )
+}
+
+const LandingSection = () => {
+
+  return (
+    <section className="h-screen flex flex-col snap-always snap-start shrink-0" aria-label="landing page">
+      <div className="flex md:items-center h-full lg:px-24">
+        <div className="flex gap-10 flex-col md:flex-row items-center md:items-start pt-10 md:pt-0">
+          <figure>
+            <img src={HomepageAvatar} className="w-52 aspect-square" alt="avatar of Dries Delanghe holding a cup of tea" />
+          </figure>
+          <section aria-label="welcome text" className="max-w-xl flex flex-col gap-10">
+            <div className="flex gap-2 md:gap-5 flex-col">
+              <h1 className="text-3xl font-semibold">
+                Hi I'm <span className="text-theme">Dries Delanghe</span> <br />
+                A frontend webdeveloper and designer <br />
+                based in Belgium
+              </h1>
+              <p className="text-muted">
+                Whether you're here to learn more about my skills and experience, or simply to admire the work I've created, I'm glad you're here.
+              </p>
+            </div>
+            <div className="flex gap-5 items-center justify-center md:justify-start">
+              <LinkPrimary path="/work" title="View my work" />
+              <LinkSecondary path="mailto:dries.delanghe@nara.to" title="Get in touch" />
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+const AboutSection = () => {
+
+  return (
+    <section aria-label="about me" className="min-h-screen flex flex-col items center snap-always snap-start shrink-0">
+      <div className="flex flex-col items-center gap-10 pt-10 md:pt-20">
+        <figure>
+          <img src={AboutAvatar} className="w-52 aspect-square" alt="avatar of Dries Delanghe waving at you" />
+        </figure>
+        <div className="flex flex-col items-center gap-5 max-w-xl">
+          <h2 className="text-3xl font-semibold">
+            About me
+          </h2>
+          <p className="text-muted">
+            My name is Dries Delanghe, and I'm a frontend web developer and designer with a knack for turning complex problems into beautiful, user-friendly solutions. I see an opportunity in everything, and it drives me to always strive for excellence in my work.
+            <br /> <br />
+            With experience in fullstack web development and mobile app development, I bring a diverse skill set to the table. My ultimate goal is to help businesses like yours succeed by creating digital solutions that are not only visually appealing but also highly functional and user-friendly.
+            <br /><br />
+            I'm a dreamer at heart, and I'm always looking for new ways to push the boundaries of what's possible in the digital world. So, if you're looking for a frontend developer and designer who is dedicated to turning your vision into reality, look no further.
+          </p>
+        </div>
+      </div>
+    </section>
   )
 }
 
 export default IndexPage
 
-export const Head: HeadFC = () => <title>Home Page</title>
+export const Head: HeadFC = () => <title>Portfolio - Dries Delanghe</title>
