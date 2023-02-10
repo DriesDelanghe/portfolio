@@ -43,7 +43,7 @@ const LandingSection = () => {
             </div>
             <div className="flex gap-5 items-center justify-center md:justify-start">
               <LinkPrimary path="/work" title="View my work" />
-              <LinkSecondary path="mailto:dries.delanghe@nara.to" title="Get in touch" />
+              <LinkSecondary isExternal path="mailto:dries.delanghe@nara.to" title="Get in touch" />
             </div>
           </section>
         </div>
