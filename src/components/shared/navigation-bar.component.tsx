@@ -24,7 +24,7 @@ export const NavigationBar = ({ activePath }: NavigationBarProps) => {
     }, [])
 
     return (
-        <nav className="px-12 py-5 fixed w-full top-0 bg-white z-20">
+        <nav className="px-12 pt-5 fixed w-full top-0 bg-white z-20">
             <ul className="flex justify-end list-none gap-10">
                 {routeKeys.map((name) => <NavigationItem path={routes[name]} title={name} key={routes[name]} isActive={isActive} />)}
             </ul>
