@@ -43,7 +43,7 @@ const WorkPageBody = ({ body, data }: WorkPageBodyProps) => {
                 Back to overview
             </Link>
             <div className='w-full'>
-                <h1 className='font-bold text-2xl'>{data.title}</h1>
+                <h1 className='font-semibold text-2xl'>{data.title}</h1>
                 <p className="text-muted font-sm">{new Date(data.creationTime).toDateString()}</p>
             </div>
             {image && <GatsbyImage image={image} alt={`cover image for blog post ${data.title}`} />}

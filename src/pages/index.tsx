@@ -1,7 +1,7 @@
 import * as React from "react"
-import type { HeadFC, PageProps } from "gatsby"
+import { HeadFC, PageProps, graphql } from "gatsby"
 import { Layout, LinkPrimary, LinkSecondary } from "../components/shared"
-import { StaticImage } from "gatsby-plugin-image"
+import { StaticImage, getSrc } from "gatsby-plugin-image"
 
 const IndexPage: React.FC<PageProps> = ({ location }) => {
   return (
@@ -74,4 +74,38 @@ const AboutSection = () => {
 
 export default IndexPage
 
-export const Head: HeadFC = () => <title>Portfolio - Dries Delanghe</title>
+export const Head: HeadFC = ({ data }) => {
+
+  //@ts-ignore
+  const src = data?.imageSharp?.gatsbyImageData && getSrc(data.imageSharp.gatsbyImageData)
+  const text = "Welcome to the portfolio of Dries Delanghe, a skilled frontend web developer and designer. Discover his unique collection of web solutions, showcasing his ability to bring your visions to life. Contact him today to start your next project."
+  return (
+    <>
+      <title>Portfolio - Dries Delanghe</title>
+      <meta property='og:type' content='website' />
+      <meta property='og:site_name' content='Portfolio Dries Delanghe' />
+      <meta property='og:image' content={src} />
+      <meta property="og:description" content={text} />
+      <meta property="og:title" content="Dries Delanghe - Frontend Web Developer & Designer" />
+
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:description" content={text} />
+      <meta name="twitter:title" content="Dries Delanghe - Frontend Web Developer & Designer" />
+      <meta name="twitter:site" content="@Spooksly" />
+      <meta name="twitter:image" content={src} />
+      <meta name="twitter:creator" content="@Spooksly" />
+    </>
+  )
+}
+
+
+export const query = graphql`
+  query getHomepageImage {
+    imageSharp(original: {src: {regex: "/site-image-avatar/"}}) {
+       gatsbyImageData(
+                width: 400
+                height: 400
+                )
+    }
+  }
+  `
