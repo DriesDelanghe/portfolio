@@ -55,7 +55,6 @@ export const Head: HeadFC = ({ data }) => {
 
     //@ts-ignore
     const pageData = data.mdx
-    console.log(pageData)
 
     const image: string | undefined = useMemo(() => pageData.coverImage && getSrc(pageData.coverImage?.childrenImageSharp[0]?.gatsbyImageData), [])
     const metadata = { title: pageData.frontmatter.title, content: pageData.excerpt, image: image, creationTime: pageData.frontmatter.creationTime }
