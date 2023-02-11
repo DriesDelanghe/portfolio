@@ -43,7 +43,7 @@ const WorkPageBody = ({ body, data }: WorkPageBodyProps) => {
                 Back to overview
             </Link>
             <div className='w-full'>
-                <h1 className='font-bold text-2xl'>{data.title}</h1>
+                <h1 className='font-semibold text-2xl'>{data.title}</h1>
                 <p className="text-muted font-sm">{new Date(data.creationTime).toDateString()}</p>
             </div>
             {image && <GatsbyImage image={image} alt={`cover image for blog post ${data.title}`} />}
@@ -70,6 +70,7 @@ export const Head: HeadFC = ({ data }) => {
             <meta property="og:description" content={metadata.content} />
             <meta property="og:title" content={metadata.title} />
             <meta property="article:published_time" content={metadata.creationTime} />
+            <meta name="description" content={metadata.content} />
 
             <meta name="twitter:card" content="summary" />
             <meta name="twitter:description" content={metadata.content} />

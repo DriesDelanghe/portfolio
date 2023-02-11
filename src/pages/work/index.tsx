@@ -2,7 +2,7 @@ import { HeadFC, PageProps, graphql } from "gatsby";
 import { Link } from 'gatsby-link'
 import React, { useMemo, CSSProperties } from "react";
 import { Layout } from "../../components/shared";
-import { GatsbyImage, IGatsbyImageData, StaticImage, getImage } from "gatsby-plugin-image";
+import { GatsbyImage, IGatsbyImageData, StaticImage, getImage, getSrc } from "gatsby-plugin-image";
 import { FaArrowRight } from 'react-icons/fa'
 
 const WorkPage: React.FC<PageProps> = ({ location, data }) => {
@@ -29,7 +29,7 @@ const MyWorkHero = () => {
             <StaticImage alt="Avatar image of Dries Delanghe expressing his love for his work" src="../../images/work-avatar.png"
                 className="w-52 aspect-square" />
             <div className="flex flex-col gap-5">
-                <h1 className="font-bold text-xl">
+                <h1 className="font-semibold text-xl">
                     Showcasing My Skills: A Collection of My Best Work
                 </h1>
                 <p className="text-muted max-w-2xl">
@@ -74,6 +74,35 @@ const WorkCard = ({ data, excerpt }: WorkCardProps) => {
     )
 }
 
+export const Head: HeadFC = ({ data }) => {
+
+    //@ts-ignore
+    const src = data?.imageSharp?.gatsbyImageData && getSrc(data.imageSharp.gatsbyImageData)
+
+    const text = `Explore the portfolio of junior frontend developer Dries Delanghe, showcasing his commitment to delivering creative and functional web solutions. From fullstack web development to mobile app development, see his passion for designing and developing websites come to life.`
+
+    const title = 'My Work - A Collection of Web Solutions by Junior Frontend Developer Dries Delanghe'
+
+    return (
+        <>
+            <title>My work - Portfolio - Dries Delanghe</title>
+            <meta property='og:type' content='webpage' />
+            <meta property='og:site_name' content='Portfolio Dries Delanghe' />
+            <meta property='og:image' content={src} />
+            <meta property="og:description" content={text} />
+            <meta property="og:title" content={title} />
+            <meta name="description" content={text} />
+
+            <meta name="twitter:card" content="summary" />
+            <meta name="twitter:description" content={text} />
+            <meta name="twitter:title" content={title} />
+            <meta name="twitter:site" content="@Spooksly" />
+            <meta name="twitter:image" content={src} />
+            <meta name="twitter:creator" content="@Spooksly" />
+        </>
+    )
+}
+
 export const query = graphql`
 query MyWork {
   allMdx(filter: {internal: {contentFilePath: {regex: "/.work/"}}}) {
@@ -93,7 +122,11 @@ query MyWork {
       excerpt(pruneLength: 250)
     }
   }
+    imageSharp(original: {src: {regex: "/work-avatar/"}}) {
+        gatsbyImageData(
+            width: 400
+            height: 400
+        )
+}
 }
 `
-
-export const Head: HeadFC = () => <title>My work - Portfolio - Dries Delanghe</title>
