@@ -70,6 +70,7 @@ export const Head: HeadFC = ({ data }) => {
             <meta property="og:description" content={metadata.content} />
             <meta property="og:title" content={metadata.title} />
             <meta property="article:published_time" content={metadata.creationTime} />
+            <meta name="description" content={metadata.content} />
 
             <meta name="twitter:card" content="summary" />
             <meta name="twitter:description" content={metadata.content} />

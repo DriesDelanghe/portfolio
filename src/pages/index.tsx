@@ -87,6 +87,7 @@ export const Head: HeadFC = ({ data }) => {
       <meta property='og:image' content={src} />
       <meta property="og:description" content={text} />
       <meta property="og:title" content="Dries Delanghe - Frontend Web Developer & Designer" />
+      <meta name="description" content={text} />
 
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:description" content={text} />
