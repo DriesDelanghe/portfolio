@@ -22,7 +22,7 @@ type WorkPageBodyProps = {
         title: string;
         creationTime: string;
         coverImage?: {
-            childrenImageSharp: childrenImageSharp[]
+            childImageSharp: any
         };
         id: string
     }
@@ -33,7 +33,8 @@ type childrenImageSharp = { gatsbyImageData: IGatsbyImageData }
 
 const WorkPageBody = ({ body, data }: WorkPageBodyProps) => {
 
-    const image: IGatsbyImageData | undefined = useMemo(() => data.coverImage && getImage(data.coverImage?.childrenImageSharp[0]?.gatsbyImageData), [])
+    const image: IGatsbyImageData | undefined = useMemo(() => data.coverImage && getImage(data.coverImage?.childImageSharp.gatsbyImageData), [])
+    console.log(image)
 
     return (
         <div className='py-20 px-8 flex flex-col gap-5 max-w-4xl items-center mx-auto'>
@@ -56,7 +57,7 @@ export const Head: HeadFC = ({ data }) => {
     //@ts-ignore
     const pageData = data.mdx
 
-    const image: string | undefined = useMemo(() => pageData.coverImage && getSrc(pageData.coverImage?.childrenImageSharp[0]?.gatsbyImageData), [])
+    const image: string | undefined = useMemo(() => pageData.frontmatter.coverImage.childImageSharp && getSrc(pageData.frontmatter.coverImage?.childImageSharp.gatsbyImageData), [])
     const metadata = { title: pageData.frontmatter.title, content: pageData.excerpt, image: image, creationTime: pageData.frontmatter.creationTime }
 
     return (
@@ -87,7 +88,7 @@ query QueryWorkItem($frontmatter__id: String) {
       title
       creationTime
       coverImage {
-        childrenImageSharp {
+        childImageSharp {
             gatsbyImageData(
                 width: 1920
                 height: 1080
@@ -95,7 +96,7 @@ query QueryWorkItem($frontmatter__id: String) {
           }
       }
     }
-    excerpt(pruneLength: 100)
+    excerpt(pruneLength: 250)
     body
   }
 }
