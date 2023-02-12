@@ -38,7 +38,7 @@ const WorkPageBody = ({ body, data }: WorkPageBodyProps) => {
 
     return (
         <div className='py-20 px-8 flex flex-col gap-5 max-w-4xl items-center mx-auto'>
-            <Link to='/work' className="w-full flex items-center gap-3">
+            <Link to='/work' className="w-full flex items-center gap-3 text-theme no-underline">
                 <FaArrowLeft />
                 Back to overview
             </Link>

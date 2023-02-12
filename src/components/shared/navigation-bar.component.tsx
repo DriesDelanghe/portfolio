@@ -43,9 +43,9 @@ const NavigationItem = ({ title, path, isActive }: NavigationItemProps) => {
     const active = useMemo(() => isActive(path), [])
 
     return (
-        <li className={`hover:border-theme-dark border-0 border-b-2 border-transparent group outline-none 
+        <li className={`hover:border-theme-dark border-0 border-b-2 border-transparent group outline-none list-none py-0 m-0
             focus:border-theme-dark transition-colors duration-100`}>
-            <Link to={path} className={`font-medium group-focus:text-theme-dark group-hover:text-theme-dark transition-colors duration-100${active ? ' text-theme' : ''}`}>
+            <Link to={path} className={`font-medium group-focus:text-theme-dark group-hover:text-theme-dark transition-colors no-underline duration-100 ${active ? 'text-theme' : 'text-black'}`}>
                 {title}
             </Link>
         </li>

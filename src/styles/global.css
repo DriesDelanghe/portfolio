@@ -10,3 +10,41 @@
         --color-theme-light: 184, 51, 78;
     }
 }
+
+@layer utilities {
+    p {
+        @apply text-muted my-2;
+    }
+
+    h1 {
+        @apply text-2xl font-semibold mt-6 mb-4;
+    }
+
+    h2 {
+        @apply text-xl font-semibold my-4;
+    }
+
+    h3 {
+        @apply text-lg font-semibold my-4;
+    }
+
+    pre {
+        @apply bg-slate-800 rounded-lg text-white p-4 max-w-full overflow-auto;
+    }
+
+    code {
+        @apply bg-slate-100 border border-slate-400 p-1 rounded;
+    }
+
+    pre>code {
+        @apply bg-transparent border-0 p-0 rounded-none font-mono;
+    }
+
+    li {
+        @apply list-disc py-1 ml-10;
+    }
+
+    a {
+        @apply text-theme underline;
+    }
+}

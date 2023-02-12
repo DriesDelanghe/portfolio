@@ -49,6 +49,14 @@ const config: GatsbyConfig = {
       },
       __key: 'work'
     },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "blog",
+        path: `./src/data/pages/blog`,
+      },
+      __key: 'blog'
+    },
   ]
 };
 

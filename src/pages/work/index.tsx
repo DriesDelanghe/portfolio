@@ -59,7 +59,7 @@ const WorkCard = ({ data, excerpt }: WorkCardProps) => {
 
     return (
         <Link to={'/work/' + data.id}
-            className="max-w-3xl flex flex-col md:flex-row gap-5 border rounded-lg border-slate-200 group hover:bg-slate-200 transition-colors duration-150 hover:shadow-lg overflow-hidden">
+            className="max-w-3xl flex flex-col md:flex-row gap-5 border rounded-lg border-slate-200 group hover:bg-slate-200 transition-colors duration-150 hover:shadow-lg overflow-hidden no-underline">
             {image && <GatsbyImage className="group-hover:brightness-50 transition-all duration-150"
                 imgClassName="h-full w-full"
                 image={image}
@@ -67,7 +67,7 @@ const WorkCard = ({ data, excerpt }: WorkCardProps) => {
             <div className="p-5 flex flex-col gap-5">
                 <h3 className="font-bold ">{data.title}</h3>
                 <p className="text-muted w-full">{excerpt}
-                    <span className="w-full inline-flex items-center justify-end gap-2 pl-3">See more <FaArrowRight /></span>
+                    <span className="w-full inline-flex items-center justify-end gap-2 pl-3 text-theme">See more <FaArrowRight /></span>
                 </p>
             </div>
         </Link>
