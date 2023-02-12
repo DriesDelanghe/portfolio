@@ -79,7 +79,7 @@ export const Head: HeadFC = ({ data }) => {
     //@ts-ignore
     const src = data?.imageSharp?.gatsbyImageData && getSrc(data.imageSharp.gatsbyImageData)
 
-    const text = `Explore the portfolio of junior frontend developer Dries Delanghe, showcasing his commitment to delivering creative and functional web solutions. From fullstack web development to mobile app development, see his passion for designing and developing websites come to life.`
+    const text = `Explore my portfolio and discover the full extent of my web development and design skills. As a front-end developer and designer with experience in full-stack development and mobile app creation, I bring a unique perspective to each project I work on. From concept to launch, I strive to bring my clients' visions to life, delivering beautiful, functional, and user-friendly websites and apps. Take a look at my work and see the impact I can have on your next project.`
 
     const title = 'My Work - A Collection of Web Solutions by Junior Frontend Developer Dries Delanghe'
 

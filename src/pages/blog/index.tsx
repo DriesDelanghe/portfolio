@@ -2,6 +2,7 @@ import { HeadFC, Link, PageProps, graphql } from "gatsby"
 import { Layout } from "../../components/shared"
 import React from 'react';
 import { StaticImage, getSrc } from "gatsby-plugin-image";
+import { Card } from "../../components/shared/card.component";
 
 
 const BlogPage: React.FC<PageProps> = ({ location, data }) => {
@@ -40,7 +41,7 @@ const BlogHero = () => {
 }
 
 type BlogPageBodyProps = {
-    blogposts: { frontmatter: { title: string, id: string }, coverImage: { childImageSharp: any } }[]
+    blogposts: { frontmatter: { title: string, id: string, coverImage: { childImageSharp: any } }, excerpt: string }[]
 }
 
 const BlogPageBody = ({ blogposts }: BlogPageBodyProps) => {
@@ -53,7 +54,7 @@ const BlogPageBody = ({ blogposts }: BlogPageBodyProps) => {
                 My blogposts
             </h2>
             {blogposts.length > 0 ?
-                blogposts.map((post) => <Link to={`/blog/${post.frontmatter.id}`} key={post.frontmatter.id} >{post.frontmatter.title}</Link>)
+                blogposts.map((post) => <Card key={post.frontmatter.id} excerpt={post.excerpt} gatsbyImageData={post.frontmatter.coverImage?.childImageSharp} title={post.frontmatter.title} to={`/blog/${post.frontmatter.id}`} />)
                 :
                 <p className="text-muted">
                     Hello there! I'm currently hard at work exploring the latest trends and techniques in web development and design. I can't wait to share my insights and experiences with you on this blog.

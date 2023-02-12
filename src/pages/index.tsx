@@ -51,7 +51,7 @@ const AboutSection = () => {
 
   return (
     <section aria-label="about me" className="min-h-screen flex flex-col items center snap-always snap-start shrink-0">
-      <div className="flex flex-col items-center gap-10 pt-20">
+      <div className="flex flex-col items-center gap-10 py-20">
         <figure>
           <StaticImage width={200} src={'../images/about-me-avatar.png'} className="w-52 aspect-square" alt="avatar of Dries Delanghe waving at you" />
         </figure>
@@ -78,7 +78,7 @@ export const Head: HeadFC = ({ data }) => {
 
   //@ts-ignore
   const src = data?.imageSharp?.gatsbyImageData && getSrc(data.imageSharp.gatsbyImageData)
-  const text = "Welcome to the portfolio of Dries Delanghe, a skilled frontend web developer and designer. Discover his unique collection of web solutions, showcasing his ability to bring your visions to life. Contact him today to start your next project."
+  const text = "I'm Dries Delanghe, a driven front-end web developer and designer with a passion for creating visually appealing and user-friendly websites and mobile applications. With experience in full-stack web development and a love for exploring new technologies, I strive to bring innovation to every project I work on. Follow my journey through the world of web development and design on my portfolio site."
   return (
     <>
       <title>Portfolio - Dries Delanghe</title>

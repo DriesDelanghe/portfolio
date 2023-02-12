@@ -34,7 +34,6 @@ type childrenImageSharp = { gatsbyImageData: IGatsbyImageData }
 const WorkPageBody = ({ body, data }: WorkPageBodyProps) => {
 
     const image: IGatsbyImageData | undefined = useMemo(() => data.coverImage && getImage(data.coverImage?.childImageSharp.gatsbyImageData), [])
-    console.log(image)
 
     return (
         <div className='py-20 px-8 flex flex-col gap-5 max-w-4xl items-center mx-auto'>
